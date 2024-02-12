@@ -602,7 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ea4004279de384692d30ec4ad9b5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 10
+  RotateSpeed: 30
 --- !u!1 &1103436046
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +897,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 440587416393918434, guid: d3dd8167458339f49a0b47c8a6dc290f, type: 3}
+      propertyPath: DetachThreshold
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 440587416393918434, guid: d3dd8167458339f49a0b47c8a6dc290f, type: 3}
       propertyPath: DetachEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1035,6 +1040,10 @@ PrefabInstance:
       propertyPath: Highlightables.Array.data[2]
       value: 
       objectReference: {fileID: 69777193}
+    - target: {fileID: 5438547193608493451, guid: d3dd8167458339f49a0b47c8a6dc290f, type: 3}
+      propertyPath: DetachThreshold
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5438547193608493451, guid: d3dd8167458339f49a0b47c8a6dc290f, type: 3}
       propertyPath: DetachEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2

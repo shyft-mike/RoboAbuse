@@ -8,7 +8,12 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// The move speed.
     /// </summary>
-    public float MoveSpeed = 5.0f;
+    public float MoveSpeed = 10.0f;
+
+    /// <summary>
+    /// The rotation speed;
+    /// </summary>
+    public float RotateSpeed = 30.0f;
 
     void Start()
     {
@@ -17,6 +22,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        // Translation
         Vector3 direction = Vector3.zero;
 
         direction.z = Input.GetAxis("Vertical");
@@ -32,5 +38,19 @@ public class CameraController : MonoBehaviour
         }
 
         transform.Translate(direction * MoveSpeed * Time.deltaTime);
+
+        // Rotation
+        float yRotation = 0f;
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            yRotation += -1;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            yRotation += 1;
+        }
+
+        transform.Rotate(Vector3.up, yRotation * RotateSpeed * Time.deltaTime);
     }
 }

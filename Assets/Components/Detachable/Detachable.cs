@@ -56,11 +56,31 @@ public class Detachable : Moveable
     }
 
     /// <summary>
+    /// Handles the mouse drag event.
+    /// </summary>
+    /// <param name="eventParams">The MouseEventParams object.</param>
+    new public void HandleMouseDrag(MouseEventParams eventParams)
+    {
+        base.HandleMouseDrag(eventParams);
+
+        if (AttachedTo == null)
+        {
+            TryAttach();
+        }
+        else
+        {
+            TryDetach();
+        }
+    }
+
+    /// <summary>
     /// When the mouse button is released, handle the attach/detach behavior.
     /// </summary>
     /// <param name="eventParams">The MouseEventParams.</param>
     new public void HandleMouseUp(MouseEventParams eventParams)
     {
+        base.HandleMouseUp(eventParams);
+
         if (AttachedTo == null)
         {
             TryAttach();
@@ -130,8 +150,13 @@ public class Detachable : Moveable
     {
         AttachedTo = attachPoint;
 
-        Vector3 offset = attachPoint.transform.position - AttachPosition.transform.position;
-        transform.position += offset;
+        // Don't move the position if it's already moving
+        if (!_moving)
+        {
+            Vector3 offset = attachPoint.transform.position - AttachPosition.transform.position;
+            transform.position += offset;
+        }
+
         transform.SetParent(attachPoint.transform); // Reparent to the attachpoint
 
         // Announce what got attached.
