@@ -66,4 +66,6 @@ Controls for camera movement
 
 - Running tests in the test runner should all pass
 
-> See [Components/Tests](Assets/Components/Tests/)
+> Notes: I attempted to add Moq to test some of the material changes, but it seemed like Edit tests just aren't appropriate for those kinds of things.
+
+> See: [Components/Tests](Assets/Components/Tests/)
